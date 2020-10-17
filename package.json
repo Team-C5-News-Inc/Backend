@@ -1,0 +1,30 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Backend of the final platzi master project",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Team-C5-cheaPlatzi/Backend.git"
+  },
+  "keywords": [
+    "news",
+    "backend",
+    "platzi",
+    "master"
+  ],
+  "author": "@master5-7.inc",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Team-C5-cheaPlatzi/Backend/issues"
+  },
+  "homepage": "https://github.com/Team-C5-cheaPlatzi/Backend#readme"
+}
