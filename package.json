@@ -26,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/Team-C5-cheaPlatzi/Backend/issues"
   },
-  "homepage": "https://github.com/Team-C5-cheaPlatzi/Backend#readme"
+  "homepage": "https://github.com/Team-C5-cheaPlatzi/Backend#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
