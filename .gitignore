@@ -1,6 +1,7 @@
 ### dotenv ###
 .env
-
+### html ###
+.html
 ### Node ###
 # Logs
 logs

@@ -1,9 +1,11 @@
 const express = require("express")
-const dataMock =["data"]
+const newsService = require("../services/news")
 
+
+/* Pagination Function */
 const pagination= (req, nextOrPrev, page)=> {
+    
     let nextOrPrevPage /* = `http://${req.header.host}?page=${parseInt(page)+1}` */;
-
     if (nextOrPrev === "next") {
         if(page){
             nextOrPrevPage = `http://${req.headers.host}/api/news?page=${parseInt(page)+1}`
@@ -23,13 +25,20 @@ const pagination= (req, nextOrPrev, page)=> {
      return nextOrPrevPage
 }
 
+/* Route news Function */
 function newsRoute(app){
     const router  = express.Router()
+    
+    const newsServiceInstance = new newsService()
+
     app.use("/api/news", router)
     //Get All 
     router.get("/",async (req, res, next)=>{
+        /* In this define syntax, of query not exist its a object empty */
+        let {tags, category , page=0}= req.query
         
-        let {tags, category , page }= req.query
+        const serviceResponse = await newsServiceInstance.getNews({tags, category, page})
+
         try {
             res.status(200).json({
                 info: {
@@ -38,7 +47,7 @@ function newsRoute(app){
                     category: category ? category : null ,
                     tags: tags ? tags : null
                 },
-                data : dataMock
+                data : serviceResponse
             })            
         } catch (error) {
             console.log(error);
@@ -48,10 +57,13 @@ function newsRoute(app){
     //Get One
     router.get("/:_id", async (req,res, next)=>{
         const { _id } = req.params;
+    
+        const oneNew = await newsServiceInstance.getOne(_id)
+        
         try {
-            res.status(200).res.json({
+            res.status(200).json({
                 message: "Get one movie by id",
-                data: dataMock
+                data: oneNew || [ ]
             })
         } catch (error) {
             // next(error)

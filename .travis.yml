@@ -13,7 +13,24 @@ git:
 branches:
   except:
     - develop-j
+    - BackJules
 
 
 scripts:  
   - yarn test
+
+notifications:
+  email:
+    recipients:
+      - johan-avila@outlook.com
+    on_success: always
+    on_failure: always
+
+deploy:
+  provider: heroku
+  skip-cleanup: true
+  keep-history: true
+  api_key: "$API_KEY"
+  app:
+  on:
+    repo: Team-C5-cheaPlatzi/Backend
