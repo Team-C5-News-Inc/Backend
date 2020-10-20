@@ -1,0 +1,19 @@
+language: node_js
+
+cache: 
+  directories: 
+    - node_modules
+    - ~/.npm
+
+node_js: 
+  - "12"
+
+git:
+  depth: 3
+branches:
+  except:
+    - develop-j
+
+
+scripts:  
+  - yarn test
