@@ -8,14 +8,13 @@
   },
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js",
-    "test": "jest"
+    "dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Team-C5-cheaPlatzi/Backend.git"
   },
-  "keywords": [
+"keywords": [
     "news",
     "backend",
     "platzi",
