@@ -19,7 +19,7 @@ const pagination= (req, nextOrPrev, page)=> {
             nextOrPrevPage = `http://${req.headers.host}/api/news?page=null`
         }
      }
-     console.log(req);
+
      return nextOrPrevPage
 }
 
@@ -30,7 +30,6 @@ function newsRoute(app){
     router.get("/",async (req, res, next)=>{
         
         let {tags, category , page }= req.query
-        console.log(page);
         try {
             res.status(200).json({
                 info: {
