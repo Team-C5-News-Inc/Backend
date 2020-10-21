@@ -20,6 +20,12 @@ notifications:
   email:
     recipients:
       - johan-avila@outlook.com
+      - juliandavid25@hotmail.com
+      - pino2110@gmail.com
+      - ing.oscarp1@gmail.com
+      - jorgenalejandrogm@gmail.com
+      - xaviergn60@gmail.com
+      - bernardo.aguayo.ortega@gmail.com
     on_success: always
     on_failure: always
 
