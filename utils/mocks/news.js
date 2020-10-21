@@ -1,4 +1,5 @@
-module.exports = notices = [
+
+const newsMock = [
     
     {
         title : "title 1",
@@ -54,15 +55,37 @@ module.exports = notices = [
                 long_name: "Ciencia y tecnología",
                 short_name: "CyT"
             },
-            tags : ["Einstein", "bolsa de valores", "recesión" ],
+            tags : ["Einstein", "recesión" ],
             autor :"Carl Sagan",
             article : "https://www.bbc.com/noticia-54572478",
             source : "https://www.bbc.com/",
             publication_date: new Date()
     },
-    
-    
-    
-
 ]
 
+function filteredByTagsMock(tags){
+    return newsMock.filter(news => news.tags.includes(tags))
+}
+function filteredByCategoryMock (category) {
+    return newsMock.filter(news => news.category.short_name === category)
+}
+
+class NewsServiceMock {
+ 
+    
+        async getNews( ) {
+            return Promise.resolve(newsMock)
+        }
+    
+        async getOne( ) {
+            return Promise.resolve(newsMock[0])
+        }
+    }
+
+
+module.exports = {
+    newsMock,
+    filteredByTagsMock,
+    filteredByCategoryMock,
+    NewsServiceMock
+}

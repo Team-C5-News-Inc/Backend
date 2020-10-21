@@ -1,7 +1,7 @@
 // const { parse } = require('dotenv/types');
 const mongoLib = require('../lib/mongodb');
 
-class newsService {
+class NewsService {
     constructor() {
         this.collection = 'news',
         this.mongoDB = new mongoLib
@@ -28,4 +28,4 @@ class newsService {
     }
 }
 
-module.exports = newsService;
+module.exports = NewsService;

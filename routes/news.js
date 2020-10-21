@@ -1,5 +1,5 @@
 const express = require("express")
-const newsService = require("../services/news")
+const NewsService = require("../services/news")
 
 
 /* Pagination Function */
@@ -29,7 +29,7 @@ const pagination= (req, nextOrPrev, page)=> {
 function newsRoute(app){
     const router  = express.Router()
     
-    const newsServiceInstance = new newsService()
+    const NewsServiceInstance = new NewsService()
 
     app.use("/api/news", router)
     //Get All 
@@ -37,7 +37,7 @@ function newsRoute(app){
         /* In this define syntax, of query not exist its a object empty */
         let {tags, category , page=0}= req.query
         
-        const serviceResponse = await newsServiceInstance.getNews({tags, category, page})
+        const serviceResponse = await NewsServiceInstance.getNews({tags, category, page})
 
         try {
             res.status(200).json({
@@ -58,7 +58,7 @@ function newsRoute(app){
     router.get("/:_id", async (req,res, next)=>{
         const { _id } = req.params;
     
-        const oneNew = await newsServiceInstance.getOne(_id)
+        const oneNew = await NewsServiceInstance.getOne(_id)
         
         try {
             res.status(200).json({

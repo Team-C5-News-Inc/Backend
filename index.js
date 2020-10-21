@@ -11,8 +11,11 @@ app.use(express.json());
 /* Routes */
 newsRoute(app)
 
-
+app.get("/", (req, res)=>{
+    res.send("hols")
+})
 app.listen(port, ()=>{
     console.log(`App listen on ${port}`);
-})
+});
 
+module.exports = app
