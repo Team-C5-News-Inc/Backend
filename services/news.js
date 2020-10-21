@@ -1,3 +1,4 @@
+// const { parse } = require('dotenv/types');
 const mongoLib = require('../lib/mongodb');
 
 class newsService {
@@ -6,11 +7,24 @@ class newsService {
         this.mongoDB = new mongoLib
     }
 
-    async getUsers({ newsId }) {
-        const query = newsId && { newsId };
-        const news = await this.mongoDB.getAll(this.collection, query);
+    async getNews( {tags, category, page} ) {
+        
+        
+        const query = { page: parseInt(page),
+                        tags : tags ? {"tags":{ $in: tags.split(",") }} : {},
+                        category: category ? {"category.short_name": category }: {}
+                    };
+
+
+        const news = await this.mongoDB.getAllAggregate(this.collection, query);
 
         return news || [];
+    }
+
+    async getOne(_id){
+        
+        const oneNew = await this.mongoDB.getOne(this.collection, _id)
+        return oneNew
     }
 }
 

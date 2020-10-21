@@ -1,20 +1,18 @@
-const express = require('express');
-const socket = require('../../../Diseño Web-Fullstack/Node/Proyecto_chat/server/socket');
+const express = require("express");
+const app = express()
 
-const app = express();
+const { port } = require("./config/config")
 
-const { config } = require('./config/config');
+const newsRoute = require("./routes/news")
 
-const newsApi = require('./routes/news.js');
-const usersApi = require('./routes/users.js');
-const commentsApi = require('./routes/comments.js');
-
+/* Middlewares */
 app.use(express.json());
 
-newsApi(app);
-usersApi(app);
-commentsApi(app);
+/* Routes */
+newsRoute(app)
 
-app.listen(config.port, function() {
-    console.log(`Ready!!! Listening http://localhost:${config.port}`);
-});
+
+app.listen(port, ()=>{
+    console.log(`App listen on ${port}`);
+})
+

@@ -1,0 +1,40 @@
+language: node_js
+
+cache: 
+  directories: 
+    - node_modules
+    - ~/.npm
+
+node_js: 
+  - "12"
+
+git:
+  depth: 3
+branches:
+  except:
+    - develop-j
+    - BackJules
+
+
+notifications:
+  email:
+    recipients:
+      - johan-avila@outlook.com
+      - juliandavid25@hotmail.com
+      - pino2110@gmail.com
+      - ing.oscarp1@gmail.com
+      - jorgenalejandrogm@gmail.com
+      - xaviergn60@gmail.com
+      - bernardo.aguayo.ortega@gmail.com
+    on_success: always
+    on_failure: always
+
+deploy:
+  provider: heroku
+  skip-cleanup: true
+  keep-history: true
+  api_key: 
+    secure: "QoykQW492zWKZooq51aHo3qcMi6RmmFAvFvwRuIGotba5LpSgILc5hAksmeLn56IoVjQdBYCflHB5Bx39yhV52OiNjZmAOkt7u6H9hG40gk6yhNecLJWeuVEPlWfn1m1oCg4JfqMdQ5aGKr/hqKegXTpmn7g97ttkYI2Day21UWuH16E6eBvjZrRJCk/bZbin+mxupRs7RKsVn3fvW6iOfvW3Q0Yszsj0LTsI1veq99qxpWnNUoDtWLhzohQBQaxPnrDziSy9QRV+sWlgmMDdCgiV2lNKZhJNpZy7bqqpUD90XQfTmZNPVPY/MopQi4oEc0lNHsi2js1X9DaevOXLDjeK+Pmh+WAzDTCyqKfHFWZiManqVjYLZj530Pxs4jwgJffULA3U9ircEO6qRSnt/9bVzVGdpZV79JhyxRCpoAam6vmIxv93w60MXzX0vPpuUsAxxLuCY9tpHPuYeoanZ3BC1HZi9eB/qmRzrwfUM+tkmVVn/LzhTSSLBYiad9iN7CcAewhsX/kGp9iKgyEiPEIMbn4WOpogbYCb/Q69nVTbhu+cAIbZUcVC5ltiGxqansNF8+2npAyjfyuRITtMTO0tiSptnXmYyR4aZKyKn4WO9mdZ8pRutg7Yoylanperao999zq5PVxjNTJ6RLVB6bU+GE7qJE1zpwEh+ryyjw="
+  app: backend-platzi-news
+  on:
+    repo: Team-C5-cheaPlatzi/Backend
