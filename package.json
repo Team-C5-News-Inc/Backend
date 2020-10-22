@@ -12,11 +12,9 @@
     "test": "jest --env=node --runInBand --watch",
     "test:coverage": "jest --coverage",
     "report": "nyc report --reporter=html "
-
   },
   "jest": {
     "testEnvironment": "node"
-
   },
   "repository": {
     "type": "git",
@@ -41,10 +39,8 @@
   },
   "devDependencies": {
     "jest": "^26.6.0",
-    "mocha": "^8.2.0",
     "nodemon": "^2.0.5",
     "nyc": "^15.1.0",
-    "sinon": "^9.2.0",
     "supertest": "^5.0.0"
   },
   "nyc": {
