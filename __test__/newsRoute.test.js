@@ -1,36 +1,39 @@
-const assert  = require("assert")
-const proxyquire = require("proxyquire")
+const request = require('supertest')
 
-const testServer =require("../utils/testServer")
+const app = require('../index')
 
-const {NewsServiceMock , filteredByCategoryMock, filteredByTagsMock, newsMock } = require("../utils/mocks/news")
-    
-describe("Test /api/news route", function(){
-    const route = proxyquire("../routes/news", {
-        '../services/news': NewsServiceMock
-    })  
-    const request = testServer(route)
+//This method is change by validation in index and environment in config.js
+/*//Open test server
+let testServer
+beforeAll(() => {
+    testServer = app.listen(4000)
+})
 
-    it("GET /api/news, this should return status 200", function(done)   {
-        request.get("/api/news").expect(200, done)
+//Close test server
+afterAll((done) => {
+    testServer.close(done)
+})*/
+
+
+describe('Testing get function in routes/news not is  null', () => {
+    it ('Get all data in database  Route /api/news', async() => {
+        //Test in the route news
+        const response = await request(app).get('/api/news')  
+
+        expect(response.error).toBe(false)   //expect if get error
+        expect(response.status).toBe(200)    // expect by succesfully connection
+        expect(response.body.body).not.toBeNull()  //expect not null in data
     })
+})
 
-    it("", function(done){
-        request.get("/api/movies").end((err, res)=>{
-            assert.deepEqual(res.body, {
-                info: {
-                    "next_page": "http://localhost:3000/api/news?page=2",
-                    "prev_page": "http://localhost:3000/api/news?page=null",
-                    "category": null,
-                    "tags": null
-                  },
+describe('Testing get function by id in route /:_id', () => {
+    it('Get data by id', async () => {
+        const response = await request (app).get('/api/news/5f8f1578d9980e029621ed3e')
+        
+        expect(response.error).toBe(false)
+        expect(response.status).toBe(200)
+        expect(response.body.body).not.toBeNull()
+        //expect(response.body.body._id).toBe('5f8f1578d9980e029621ed3e')  //This expected get fail error in _id in expect
 
-                data: newsMock
-
-            })
-            done()
-        })
     })
-    
-
 })

@@ -14,8 +14,18 @@ newsRoute(app)
 app.get("/", (req, res)=>{
     res.send("hols")
 })
-app.listen(port, ()=>{
-    console.log(`App listen on ${port}`);
-});
 
-module.exports = app
+//Validation with Test server
+if(process.env_NODE === 'test') {
+    app.listen(port, () => {
+        console.log(`App is listening to test in ${port}`);
+    })
+} else {
+    app.listen(port, ()=>{
+        console.log(`App listen on ${port}`);
+    })
+}
+
+
+
+module.exports = app;
