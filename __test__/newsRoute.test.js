@@ -20,9 +20,9 @@ describe('Testing get function in routes/news not is  null', () => {
         //Test in the route news
         const response = await request(app).get('/api/news')  
 
-        expect(response.error).toBe(false)   //expect if  
-        expect(response.status).toBe(200)    // responde si pudo conectarse con exito
-        expect(response.body.body).not.toBeNull()  //responde si no devuelve null
+        expect(response.error).toBe(false)   //expect if get error
+        expect(response.status).toBe(200)    // expect by succesfully connection
+        expect(response.body.body).not.toBeNull()  //expect not null in data
     })
 })
 
