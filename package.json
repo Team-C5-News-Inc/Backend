@@ -7,11 +7,10 @@
     "lib": "lib"
   },
   "scripts": {
-    "start": "node index.js",
+    "start": "NODE_ENV=production node index.js",
     "dev": "nodemon index.js",
-    "test": "jest --env=node --runInBand --watch",
-    "test:coverage": "jest --coverage",
-    "report": "nyc report --reporter=html "
+    "test": "jest --forceExit",
+    "test:coverage": "jest --coverage"
   },
   "jest": {
     "testEnvironment": "node"
@@ -33,6 +32,7 @@
   },
   "homepage": "https://github.com/Team-C5-cheaPlatzi/Backend#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mongodb": "^3.6.2"
@@ -40,16 +40,6 @@
   "devDependencies": {
     "jest": "^26.6.0",
     "nodemon": "^2.0.5",
-    "nyc": "^15.1.0",
     "supertest": "^5.0.0"
-  },
-  "nyc": {
-    "all": true,
-    "include": [
-      "routes",
-      "services",
-      "lib",
-      "utils"
-    ]
   }
 }

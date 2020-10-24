@@ -1,6 +1,9 @@
 const express = require("express")
 const NewsService = require("../services/news")
 
+const {TEN_MINUTES_IN_SECONDS} = require("../utils/cache/timeCache")
+const {cacheResponse} = require("../utils/cache/cacheResponse")
+
 
 /* Pagination Function */
 const pagination= (req, nextOrPrev, page)=> {
@@ -34,12 +37,13 @@ function newsRoute(app){
     app.use("/api/news", router)
     //Get All 
     router.get("/",async (req, res, next)=>{
+        cacheResponse(res, TEN_MINUTES_IN_SECONDS )
         /* In this define syntax, of query not exist its a object empty */
-        let {tags, category , page=0}= req.query
+        let { tags, category , page=0 }= req.query
         
-        const serviceResponse = await NewsServiceInstance.getNews({tags, category, page})
-
         try {
+            const serviceResponse = await NewsServiceInstance.getNews({tags, category, page})
+            
             res.status(200).json({
                 info: {
                     next_page: pagination(req,"next", page) ,
@@ -50,24 +54,23 @@ function newsRoute(app){
                 data : serviceResponse
             })            
         } catch (error) {
-            console.log(error);
-            // next(error)
+            next(error)
         }
     })
     //Get One
     router.get("/:_id", async (req,res, next)=>{
+        cacheResponse(res, TEN_MINUTES_IN_SECONDS )
         const { _id } = req.params;
     
-        const oneNew = await NewsServiceInstance.getOne(_id)
-        
         try {
+            const oneNew = await NewsServiceInstance.getOne(_id)
+            
             res.status(200).json({
                 message: "Get one movie by id",
                 data: oneNew || [ ]
             })
         } catch (error) {
-            // next(error)
-            console.log(error);
+            next(error)
         }
     })
 }
