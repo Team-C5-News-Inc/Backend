@@ -1,15 +1,18 @@
 const express = require("express");
+const swaggerUi = require('swagger-ui-express');
 const app = express()
 
 const { port } = require("./config/config")
 
 const newsRoute = require("./routes/news")
+const swaggerDoc = require('./swagger.json');
 
 /* Middlewares */
 app.use(express.json());
 
 /* Routes */
 newsRoute(app)
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
 
 //Validation with Test server
 if(process.env_NODE === 'test') {

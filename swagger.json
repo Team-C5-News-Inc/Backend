@@ -1,0 +1,235 @@
+{
+    "openapi" : "3.0.0",
+    "info" : {
+      "title" : "News.INC",
+      "description" : "This application allows you to get the news from different portals and keep you informed.",
+      "termsOfService" : "",
+      "contact" : {
+        "name" : "Master5_7.inc",
+        "url" : "",
+        "email" : "by_define@email.com"
+      },
+      "license" : {
+        "name" : "License MIT",
+        "url" : "https://opensource.org/licenses/MIT"
+      },
+      "version" : "1.0.0"
+    },
+    "servers" : [ {
+      "description" : "SwaggerHub API Auto Mocking",
+      "url" : "https://virtserver.swaggerhub.com/Jules.Cubs/News_inc/1.0.0"
+    }, {
+      "url" : "https://backend-platzi-news.herokuapp.com/api/",
+      "description" : "API News.INC"
+    } ],
+    "tags" : [ {
+      "name" : "news",
+      "description" : "Get news from various portals.",
+      "externalDocs" : {
+        "description" : "Find out more",
+        "url" : "https://backend-platzi-news.herokuapp.com/api/"
+      }
+    } ],
+    "schemes" : [ "https", "http" ],
+    "paths" : {
+      "/news/" : {
+        "get" : {
+          "tags" : [ "news" ],
+          "description" : "Allows you to get all the news listed in the database",
+          "parameters" : [ {
+            "in" : "query",
+            "name" : "tags",
+            "required" : false,
+            "description" : "news tag",
+            "schema" : {
+              "type" : "string",
+              "example" : "covid"
+            }
+          }, {
+            "in" : "query",
+            "name" : "categories",
+            "required" : false,
+            "description" : "news category",
+            "schema" : {
+              "type" : "string",
+              "example" : "salud"
+            }
+          } ],
+          "responses" : {
+            "200" : {
+              "description" : "Succesfully request",
+              "content" : {
+                "application/json" : {
+                  "schema" : {
+                    "type" : "array",
+                    "items" : {
+                      "properties" : {
+                        "_id" : {
+                          "type" : "string",
+                          "example" : "5efd5d0dff490d168c923ac7"
+                        },
+                        "title" : {
+                          "type" : "string",
+                          "example" : "I'm main title"
+                        },
+                        "subtitle" : {
+                          "type" : "string",
+                          "example" : "I'm subtitle"
+                        },
+                        "images" : {
+                          "type" : "string",
+                          "example" : "http://img.jpg"
+                        },
+                        "content" : {
+                          "type" : "array",
+                          "example" : [ "paragraph 1", "paragraph 2", "paragraph 3", "..." ]
+                        },
+                        "tags" : {
+                          "type" : "array",
+                          "example" : [ "covid", "bolsa de valores", "recesión", "..." ]
+                        },
+                        "autor" : {
+                          "type" : "string",
+                          "example" : "Name Autor"
+                        },
+                        "article" : {
+                          "type" : "string",
+                          "example" : "http://url_notice"
+                        },
+                        "source" : {
+                          "type" : "string",
+                          "example" : "https://www.url_news-site.es/"
+                        },
+                        "publication date" : {
+                          "type" : "string",
+                          "example" : "2017-07-21T17:32:28Z"
+                        },
+                        "categories" : {
+                          "type" : "array",
+                          "example" : [ "Politica", "Ciencia y tecnología", "..." ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "404" : {
+              "description" : "Not Found",
+              "content" : {
+                "application/json" : {
+                  "schema" : {
+                    "type" : "string",
+                    "example" : {
+                      "message" : "Error 404. Page or Request not found"
+                    }
+                  }
+                },
+                "text/plain" : {
+                  "schema" : {
+                    "type" : "string",
+                    "example" : "Page 404 Not found"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/news/{_id}" : {
+        "get" : {
+          "tags" : [ "news" ],
+          "description" : "Get the specific news by id",
+          "parameters" : [ {
+            "in" : "path",
+            "name" : "_id",
+            "required" : true,
+            "description" : "news id",
+            "schema" : {
+              "type" : "string",
+              "example" : "5efd5d0dff490d168c923ac7"
+            }
+          } ],
+          "responses" : {
+            "200" : {
+              "description" : "Succesfully request",
+              "content" : {
+                "application/json" : {
+                  "schema" : {
+                    "type" : "array",
+                    "items" : {
+                      "properties" : {
+                        "_id" : {
+                          "type" : "string",
+                          "example" : "5efd5d0dff490d168c923ac7"
+                        },
+                        "title" : {
+                          "type" : "string",
+                          "example" : "I'm main title"
+                        },
+                        "subtitle" : {
+                          "type" : "string",
+                          "example" : "I'm subtitle"
+                        },
+                        "images" : {
+                          "type" : "string",
+                          "example" : "http://img.jpg"
+                        },
+                        "content" : {
+                          "type" : "array",
+                          "example" : [ "paragraph 1", "paragraph 2", "paragraph 3", "..." ]
+                        },
+                        "tags" : {
+                          "type" : "array",
+                          "example" : [ "covid", "bolsa de valores", "recesión", "..." ]
+                        },
+                        "autor" : {
+                          "type" : "string",
+                          "example" : "Name Autor"
+                        },
+                        "article" : {
+                          "type" : "string",
+                          "example" : "http://url_notice"
+                        },
+                        "source" : {
+                          "type" : "string",
+                          "example" : "https://www.url_news-site.es/"
+                        },
+                        "publication date" : {
+                          "type" : "string",
+                          "example" : "2017-07-21T17:32:28Z"
+                        },
+                        "categories" : {
+                          "type" : "array",
+                          "example" : [ "Politica", "Ciencia y tecnología", "..." ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "404" : {
+              "description" : "Not Found",
+              "content" : {
+                "application/json" : {
+                  "schema" : {
+                    "type" : "string",
+                    "example" : {
+                      "message" : "Error 404. Page or Request not found"
+                    }
+                  }
+                },
+                "text/plain" : {
+                  "schema" : {
+                    "type" : "string",
+                    "example" : "Page 404 Not found"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

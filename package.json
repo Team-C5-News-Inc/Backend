@@ -34,7 +34,8 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "mongodb": "^3.6.2"
+    "mongodb": "^3.6.2",
+    "swagger-ui-express": "^4.1.4"
   },
   "devDependencies": {
     "jest": "^26.6.0",

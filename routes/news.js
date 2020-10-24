@@ -62,7 +62,7 @@ function newsRoute(app){
         
         try {
             res.status(200).json({
-                message: "Get one movie by id",
+                message: "Get news by id",
                 data: oneNew || [ ]
             })
         } catch (error) {

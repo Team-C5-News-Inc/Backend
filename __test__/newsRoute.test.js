@@ -14,7 +14,6 @@ afterAll((done) => {
     testServer.close(done)
 })*/
 
-
 describe('Testing get function in routes/news not is  null', () => {
     it ('Get all data in database  Route /api/news', async() => {
         //Test in the route news
