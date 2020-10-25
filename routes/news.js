@@ -8,7 +8,7 @@ const {cacheResponse} = require("../utils/cache/cacheResponse")
 /* Pagination Function */
 const pagination= (req, nextOrPrev, page)=> {
     
-    let nextOrPrevPage /* = `http://${req.header.host}?page=${parseInt(page)+1}` */;
+    let nextOrPrevPage ;
     if (nextOrPrev === "next") {
         if(page){
             nextOrPrevPage = `http://${req.headers.host}/api/news?page=${parseInt(page)+1}`
@@ -21,7 +21,7 @@ const pagination= (req, nextOrPrev, page)=> {
         if(page){
             nextOrPrevPage = `http://${req.headers.host}/api/news?page=${parseInt(page)-1}`
         }  else {
-            nextOrPrevPage = `http://${req.headers.host}/api/news?page=null`
+            nextOrPrevPage = `http://${req.headers.host}/api/news?page=${parseInt(0)}`
         }
      }
 

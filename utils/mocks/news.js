@@ -71,16 +71,14 @@ function filteredByCategoryMock (category) {
 }
 
 class NewsServiceMock {
- 
-    
-        async getNews( ) {
-            return Promise.resolve(newsMock)
-        }
-    
-        async getOne( ) {
-            return Promise.resolve(newsMock[0])
-        }
+    async getNews() {
+        return Promise.resolve(newsMock)
     }
+    
+    async getOne() {
+        return Promise.resolve(newsMock[0])
+    }
+}
 
 
 module.exports = {

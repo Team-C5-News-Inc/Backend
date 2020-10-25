@@ -1,24 +1,20 @@
-/* Express and initilize express */
 const express = require("express");
-const app = express()
+const cors =require("cors")
 
-/* Middlewares error */
+const newsRoute = require("./routes/news")
+const { port } = require("./config/config")
 const {logError, errorHandler} = require("./utils/middlewares/errorHandler")
 
-/* Config Variables */
-const { port } = require("./config/config")
+const app = express()
 
-/* Require routes files */
-const newsRoute = require("./routes/news")
-
-/* Server Static */
-app.use('/static', express.static(__dirname + '/public'));
 
 
 /* Middlewares execute*/
 app.use(express.json());
+app.use(cors())
 
-newsRoute(app) //Routes
+newsRoute(app) 
+app.use('/static', express.static(__dirname + '/public'));
 
 app.use(logError)     //Error Handlers
 app.use(errorHandler) //Error Handlers

@@ -1,39 +1,42 @@
-const request = require('supertest')
+const testServer = require("../utils/testServer")
+const route = require("../routes/news")
 
-const app = require('../index')
-
-//This method is change by validation in index and environment in config.js
-/*//Open test server
-let testServer
-beforeAll(() => {
-    testServer = app.listen(4000)
-})
-
-//Close test server
-afterAll((done) => {
-    testServer.close(done)
-})*/
-
-
-describe('Testing get function in routes/news not is  null', () => {
-    it ('Get all data in database  Route /api/news', async() => {
-        //Test in the route news
-        const response = await request(app).get('/api/news')  
-
-        expect(response.error).toBe(false)   //expect if get error
-        expect(response.status).toBe(200)    // expect by succesfully connection
-        expect(response.body.body).not.toBeNull()  //expect not null in data
-    })
-})
-
-describe('Testing get function by id in route /:_id', () => {
-    it('Get data by id', async () => {
-        const response = await request (app).get('/api/news/5f8f1578d9980e029621ed3e')
+describe("GET /api/news",  () =>{
+    test("GET /api/news", async (done)=> {
+ 
+        const response= await testServer(route).get("/api/news")
         
-        expect(response.error).toBe(false)
         expect(response.status).toBe(200)
-        expect(response.body.body).not.toBeNull()
-        //expect(response.body.body._id).toBe('5f8f1578d9980e029621ed3e')  //This expected get fail error in _id in expect
-
+        expect(response.body.info.category).toBe(null)
+        expect(response.body.info.tags).toBe(null)
+        
+        expect(Array.isArray(response.body.data)).toBe(true)
+    
+        done()
     })
+    test("GET /api/news?category=CyT", async (done)=> {
+ 
+        const response= await testServer(route).get("/api/news?category=CyT")
+        
+        expect(response.status).toBe(200)
+        expect(response.body.info.category).toBe("CyT")
+        expect(response.body.info.tags).toBe(null)
+        
+        expect(Array.isArray(response.body.data)).toBe(true)
+    
+        done()
+    })
+    test("GET /api/news?tags=Einstein", async (done)=> {
+ 
+        const response= await testServer(route).get("/api/news?tags=Einstein")
+        
+        expect(response.status).toBe(200)
+        expect(response.body.info.category).toBe(null)
+        expect(response.body.info.tags).toBe("Einstein")
+        
+        expect(Array.isArray(response.body.data)).toBe(true)
+    
+        done()
+    })
+    
 })

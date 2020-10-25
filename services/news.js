@@ -1,4 +1,3 @@
-// const { parse } = require('dotenv/types');
 const mongoLib = require('../lib/mongodb');
 
 class NewsService {
@@ -7,7 +6,7 @@ class NewsService {
         this.mongoDB = new mongoLib
     }
 
-    async getNews( {tags, category, page} ) {
+    async getNews( {tags, category, page=1} ) {
         
         
         const query = { page: parseInt(page),
