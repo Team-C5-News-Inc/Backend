@@ -13,8 +13,8 @@ const collection = "news"
 
 let req = async (done)=>{
     const _id="5f8e8fc4f05362cac140a1f"
-    const getOne = await newMongoLib.getOne( )
-    console.log(getOne[0]._id);
+    const getOne = await newMongoLib.getOne(12)
+    console.log(getOne.message);
 
 }
 req()

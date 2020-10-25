@@ -25,9 +25,14 @@ describe("Test MongoLib (getAllAggregate and GetOne)", ()=>{
 });
 
 describe("Test Fail", ()=>{
+    test("Get All fail", async (done)=>{
+        const getAllError = await newMongoLib.getAllAggregate(12)
+        expect(getAllError.message).toBe("collection name must be a String")
+        done()
+    })
     test("Get One by Id fail", async (done)=>{
-        const getOne = await newMongoLib.getOne(12)
-        expect(getOne).toBe("err")
+        const getOneError = await newMongoLib.getOne(12)
+        expect(getOneError.message).toBe("collection name must be a String")
         done()
     })
 })
