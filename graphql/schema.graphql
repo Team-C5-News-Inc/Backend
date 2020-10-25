@@ -1,0 +1,10 @@
+type news {
+    _id: ID!
+    title: String
+    subtitle: String
+    images: String
+    content: Array
+}
+
+type Query {
+}

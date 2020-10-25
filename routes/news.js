@@ -31,7 +31,8 @@ function newsRoute(app){
     
     const newsServiceInstance = new newsService()
 
-    app.use("/api/news", router)
+    //app.use("/api/news", router) route call from in index
+
     //Get All 
     router.get("/",async (req, res, next)=>{
         /* In this define syntax, of query not exist its a object empty */
