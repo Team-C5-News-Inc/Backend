@@ -1,10 +1,18 @@
 type news {
     _id: ID!
-    title: String
+    title: String!
     subtitle: String
     images: String
-    content: Array
+    content: [ String ]
+    tags: [ String ]
+    autor: String
+    article: String
+    source: String
+    publ_date: String
+    categories: [ String ]
 }
 
 type Query {
+    getNews: [ news ]
+    searchNews(keyword: String!): [ news ]
 }

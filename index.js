@@ -1,12 +1,13 @@
 'use strict' 
 
 /* Call libraries */
-const express = require('express');
+const express = require('express')
+const cors = require('cors')
 const { makeExecutableSchema } = require('graphql-tools')
 const { graphqlHTTP } = require('express-graphql')
 const { readFileSync } = require('fs')
 const { join } = require('path')
-const swaggerUi = require('swagger-ui-express');
+const swaggerUi = require('swagger-ui-express')
 
 const app = express()
 
@@ -14,10 +15,10 @@ const app = express()
 const { port } = require('./config/config')
 const newsRoute = require('./routes/news')
 const resolvers = require('./graphql/resolvers')
-const swaggerDoc = require('./swagger.json');
+const swaggerDoc = require('./swagger.json')
 
 /* Middlewares */
-app.use(express.json());
+app.use(express.json())
 
 /* Define Graphql schema */
 const typeDefs = readFileSync(
@@ -28,6 +29,7 @@ const schema = makeExecutableSchema({ typeDefs, resolvers })
 
 /* Routes */
 //newsRoute(app) change call by:
+app.use(cors())
 
 app.use('/api/news', newsRoute)
 

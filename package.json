@@ -9,6 +9,8 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
+    "lint": "standard",
+    "lint-fix": "standard --fix",
     "test": "jest --env=node --runInBand --watch",
     "test:coverage": "jest --coverage"
   },
@@ -32,6 +34,7 @@
   },
   "homepage": "https://github.com/Team-C5-cheaPlatzi/Backend#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-graphql": "^0.11.0",
@@ -43,6 +46,7 @@
   "devDependencies": {
     "jest": "^26.6.0",
     "nodemon": "^2.0.5",
+    "standard": "^15.0.0",
     "supertest": "^5.0.0"
   }
 }
