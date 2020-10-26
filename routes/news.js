@@ -34,7 +34,8 @@ function newsRoute(app){
     
     const NewsServiceInstance = new NewsService()
 
-    app.use("/api/news", router)
+    app.use("/api/news", router) //route call from in index
+
     //Get All 
     router.get("/",async (req, res, next)=>{
         cacheResponse(res, TEN_MINUTES_IN_SECONDS )

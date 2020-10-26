@@ -11,7 +11,7 @@ class NewsService {
         
         const query = { page: parseInt(page),
                         tags : tags ? {"tags":{ $in: tags.split(",") }} : {},
-                        category: category ? {"category.short_name": category }: {}
+                        category: category ? {"category": category }: {}
                     };
 
 

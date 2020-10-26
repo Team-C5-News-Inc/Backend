@@ -1,0 +1,18 @@
+type news {
+    _id: ID!
+    title: String!
+    subtitle: String
+    body: [ String ]
+    images: [ String ]
+    category:  String!
+    tags: [ String ]
+    author: String
+    publication_date: String
+    news_url: String
+    host: String
+}
+
+type Query {
+    getNews: [ news ]
+    searchNews(keyword: String!): [ news ]
+}
