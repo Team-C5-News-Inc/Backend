@@ -10,9 +10,7 @@
     "start": "node index.js",
     "dev": "nodemon index.js",
     "lint": "standard",
-    "lint-fix": "standard --fix",
-    "test": "jest --env=node --runInBand --watch",
-    "test:coverage": "jest --coverage"
+    "lint-fix": "standard --fix"
   },
   "jest": {
     "testEnvironment": "node"

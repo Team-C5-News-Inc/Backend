@@ -42,7 +42,7 @@ app.use('/search', graphqlHTTP({
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
 
 /* Validation with Test server */
-if(process.env_NODE === 'test') {
+if(process.env.NODE_ENV === 'test') {
     app.listen(port, () => {
         console.log(`App is listening to test in ${port}`);
     })
