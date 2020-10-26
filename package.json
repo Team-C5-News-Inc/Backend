@@ -10,7 +10,7 @@
     "start": "NODE_ENV=production node index.js",
     "dev": "nodemon index.js",
     "test": "jest --forceExit",
-    "test:coverage": "jest --coverage --forceExit"
+    "test:coverage": "NODE_ENV=test jest --coverage --forceExit"
   },
   "jest": {
     "testEnvironment": "node"

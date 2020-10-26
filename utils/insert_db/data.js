@@ -1,7 +1,7 @@
-{
-    "articles": [
+
+const articles = [
         {
-            "title": [
+            title: [
                 "Por tiempo se hundiría proyecto de reforma Constitucional para acabar a la JEP"
             ],
             "subtitle": [
@@ -279,12 +279,8 @@
             "host": "https://www.vanguardia.com"
         },
         {
-            "title": [
-                "En agosto, la economía siguió en ‘pronóstico reservado’, se contrajo 10,6%"
-            ],
-            "subtitle": [
-                " Las cuarentenas focalizadas y la baja demanda continuaron frenando la reactivación de la economía frente a julio. \n          "
-            ],
+            "title": ["En agosto, la economía siguió en ‘pronóstico reservado’, se contrajo 10,6%" ],
+            "subtitle": [ " Las cuarentenas focalizadas y la baja demanda continuaron frenando la reactivación de la economía frente a julio. \n "],
             "body": [
                 " ",
                 "a economía colombiana sigue pasando por momentos difíciles, a pesar del esfuerzo conjunto entre empresas y Gobierno Nacional para reactivarse. ",
@@ -23917,4 +23913,5 @@
             "host": "https://www.vanguardia.com"
         }
     ]
-}
+
+module.exports=  articles

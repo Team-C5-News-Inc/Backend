@@ -1,3 +1,5 @@
+process.env.NODE_ENV = "test"
+
 const testServer = require("../utils/testServer")
 const route = require("../routes/news")
 

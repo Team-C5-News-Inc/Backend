@@ -70,15 +70,6 @@ function filteredByCategoryMock (category) {
     return newsMock.filter(news => news.category.short_name === category)
 }
 
-class NewsServiceMock {
-    async getNews() {
-        return Promise.resolve(newsMock)
-    }
-    
-    async getOne() {
-        return Promise.resolve(newsMock[0])
-    }
-}
 
 
 module.exports = {

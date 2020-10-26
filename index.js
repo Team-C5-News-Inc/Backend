@@ -16,6 +16,7 @@ app.use(express.json());
 app.use(cors())
 
 newsRoute(app) 
+app.use('/static', express.static(__dirname + '/public'));
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
 
 app.use(logError)     //Error Handlers
@@ -24,9 +25,14 @@ app.use(errorHandler) //Error Handlers
 
 //Where listen the server?
 
-
-app.listen(port, ()=>{
-    console.log(`App listen on ${port}`);
-})
+if(process.env_NODE === 'test') {
+    app.listen(port, () => {
+        console.log(`App is listening to test in ${port}`);
+    })
+} else {
+    app.listen(port, ()=>{
+        console.log(`App listen on ${port}`);
+    })
+}
 
 module.exports = app;
