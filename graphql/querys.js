@@ -1,5 +1,5 @@
 const connectMongoDb = require('./mongodb')
-const errorhandler = require('./errorhandler')
+const errorHandler = require('./errorhandler')
 
 module.exports = {
     getNews: async () => {
