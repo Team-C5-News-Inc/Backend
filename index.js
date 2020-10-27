@@ -31,6 +31,7 @@ app.use(cors())
 
 // app.use('/api/news', )
 newsRoute(app)
+
 app.use('/search', graphqlHTTP({
     schema: schema,
     rootValue: resolvers,
