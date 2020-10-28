@@ -1,80 +1,77 @@
-
 const newsMock = [
-    
-    {
-        title : "title 1",
-        subtitle : "Subtitulo 2",
-        images: ["http://image-notice-1.com" ],
-        content : [ `<p>"Piensas que tal vez le ocurrió algo malo a uno de tus hijos o algo así"</p>` ],
-            category: {
-                long_name: "Ciencia y tecnología",
-                short_name: "CyT"
-            },
-            tags : ["Einstein", "bolsa de valores", "recesión" ],
-            autor :"Ruth Alexander",
-            article : "https://www.bbc.com/noticia-54572478",
-            source : "https://www.bbc.com/",
-            publication_date: new Date()
+
+  {
+    title: 'title 1',
+    subtitle: 'Subtitulo 2',
+    images: ['http://image-notice-1.com'],
+    content: ['<p>"Piensas que tal vez le ocurrió algo malo a uno de tus hijos o algo así"</p>'],
+    category: {
+      long_name: 'Ciencia y tecnología',
+      short_name: 'CyT'
     },
-    {
-        title : "title 2",
-        subtitle : "Subtitulo 2",
-        images: ["http://image-notice-2.com" ],
-        content : [ `<p>Piensas que tal vez le ocurrió algo </p>` ],
-            category: {
-                long_name: "Política",
-                short_name: "Polit"
-            },
-            tags : ["kapital", "Marx", "Engels" ],
-            autor :"Carl Marx",
-            article : "https://www.bbc.com/noticia-54572478",
-            source : "https://www.bbc.com/",
-            publication_date: new Date()
+    tags: ['Einstein', 'bolsa de valores', 'recesión'],
+    autor: 'Ruth Alexander',
+    article: 'https://www.bbc.com/noticia-54572478',
+    source: 'https://www.bbc.com/',
+    publication_date: new Date()
+  },
+  {
+    title: 'title 2',
+    subtitle: 'Subtitulo 2',
+    images: ['http://image-notice-2.com'],
+    content: ['<p>Piensas que tal vez le ocurrió algo </p>'],
+    category: {
+      long_name: 'Política',
+      short_name: 'Polit'
     },
-    {
-        title : "title 3",
-        subtitle : "Subtitulo 3",
-        images: ["http://image-notice-3.com" ],
-        content : [ `<p>Esta es un anoticia de economia</p>` ],
-            category: {
-                long_name: "Economía",
-                short_name: "Econ"
-            },
-            tags : ["Contador", "Economia", "" ],
-            autor :"Adam Smith",
-            article : "https://www.bbc.com/noticia-54572478",
-            source : "https://www.bbc.com/",
-            publication_date: new Date()
+    tags: ['kapital', 'Marx', 'Engels'],
+    autor: 'Carl Marx',
+    article: 'https://www.bbc.com/noticia-54572478',
+    source: 'https://www.bbc.com/',
+    publication_date: new Date()
+  },
+  {
+    title: 'title 3',
+    subtitle: 'Subtitulo 3',
+    images: ['http://image-notice-3.com'],
+    content: ['<p>Esta es un anoticia de economia</p>'],
+    category: {
+      long_name: 'Economía',
+      short_name: 'Econ'
     },
-    {
-        title : "title 1",
-        subtitle : "",
-        images: ["http://image-notice-1.com" ],
-        content : [ `<p>"Piensas que tal vez le ocurrió algo malo a uno de tus hijos o algo así"</p>` ],
-            category: {
-                long_name: "Ciencia y tecnología",
-                short_name: "CyT"
-            },
-            tags : ["Einstein", "recesión" ],
-            autor :"Carl Sagan",
-            article : "https://www.bbc.com/noticia-54572478",
-            source : "https://www.bbc.com/",
-            publication_date: new Date()
+    tags: ['Contador', 'Economia', ''],
+    autor: 'Adam Smith',
+    article: 'https://www.bbc.com/noticia-54572478',
+    source: 'https://www.bbc.com/',
+    publication_date: new Date()
+  },
+  {
+    title: 'title 1',
+    subtitle: '',
+    images: ['http://image-notice-1.com'],
+    content: ['<p>"Piensas que tal vez le ocurrió algo malo a uno de tus hijos o algo así"</p>'],
+    category: {
+      long_name: 'Ciencia y tecnología',
+      short_name: 'CyT'
     },
+    tags: ['Einstein', 'recesión'],
+    autor: 'Carl Sagan',
+    article: 'https://www.bbc.com/noticia-54572478',
+    source: 'https://www.bbc.com/',
+    publication_date: new Date()
+  }
 ]
 
-function filteredByTagsMock(tags){
-    return newsMock.filter(news => news.tags.includes(tags))
+function filteredByTagsMock (tags) {
+  return newsMock.filter(news => news.tags.includes(tags))
 }
 function filteredByCategoryMock (category) {
-    return newsMock.filter(news => news.category.short_name === category)
+  return newsMock.filter(news => news.category.short_name === category)
 }
 
-
-
 module.exports = {
-    newsMock,
-    filteredByTagsMock,
-    filteredByCategoryMock,
-    NewsServiceMock
+  newsMock,
+  filteredByTagsMock,
+  filteredByCategoryMock,
+  NewsServiceMock
 }
