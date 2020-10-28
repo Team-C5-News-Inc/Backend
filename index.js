@@ -34,7 +34,7 @@ newsRoute(app)
 app.use('/search', graphqlHTTP({
     schema: schema,
     rootValue: resolvers,
-    graphiql: true
+    graphiql: false
 }))
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
