@@ -2,14 +2,17 @@ const { request } = require("graphql-request")
 
 const reqUri= `https://backend-platzi-news.herokuapp.com/search`
 
-const query = `query {
-                searchNews(keyword:"manchester"){
-                  title
-                  tags
-                  author
-                  host
-                }
-              }
+const query = `query{
+  searchNews(keyword: "futbol"){
+    _id
+    title
+   	subtitle
+		body 
+		images
+		category
+		host
+  }
+}
   
 `
 

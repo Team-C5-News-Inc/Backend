@@ -1,6 +1,6 @@
 const newsMock = [
     {
-        id:"5f96cf7a4d16f902438ee1c0",
+        _id:"5f96cf7a4d16f902438ee1c0",
         title:"Por tiempo se hundiría proyecto de reforma Constitucional para acabar ...",
         subtitle:" Por falta de tiempo para lograr su trámite legislativo que obliga a t...",
         body:["ArrayBody1"],
@@ -13,7 +13,7 @@ const newsMock = [
         host:"https://www.vanguardia.com"
     },
     {
-        id:"5f96cf7a4456f902438ee1c0",
+        _id:"5f96cf7a4456f902438ee1c0",
         title:"Crisis de los misiles en Cuba  ",
         subtitle:"Crisis de los misiles en Cuba Crisis de los misiles en Cuba Crisis de los misiles en Cuba ",
         body:["ArrayBody2"],
@@ -26,7 +26,7 @@ const newsMock = [
         host:"https://www.vanguardia.com"
     },
     {
-        id:"5f96cf7a4d16f902098ee1c0",
+        _id:"5f96cf7a4d16f902098ee1c0",
         title:"Anonymous",
         subtitle:" AnonymousAnonymousAnonymousAnonymousAnonymous",
         body:["ArrayBody3"],
@@ -47,20 +47,11 @@ function filteredByCategoryMock (category) {
     return newsMock.filter(news => news.category === category)
 }
 
-class MongoLibMock {
-    async getNews() {
-        return Promise.resolve(newsMock)
-    }
-    
-    async getOne() {
-        return Promise.resolve(newsMock[0])
-    }
-}
+
 
 
 module.exports = {
     newsMock,
     filteredByTagsMock,
     filteredByCategoryMock,
-    MongoLibMock
 }
