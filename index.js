@@ -34,7 +34,7 @@ newsRoute(app)
 app.use('/search', graphqlHTTP({
     schema: schema,
     rootValue: resolvers,
-    graphiql: true
+    graphiql: false
 }))
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
@@ -50,7 +50,7 @@ app.use(errorHandler) //Error Handlers
 /* Validation with Test server */
 if(process.env.NODE_ENV === 'test') {
     app.listen(port, () => {
-        console.log(`App is listening to test in ${port}`);
+        console.log(`App is listening to TEST in ${port}`);
     })    
 } else {
     app.listen(port, ()=>{

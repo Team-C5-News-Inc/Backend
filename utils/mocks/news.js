@@ -1,65 +1,42 @@
-
 const newsMock = [
-    
     {
-        title : "title 1",
-        subtitle : "Subtitulo 2",
-        images: ["http://image-notice-1.com" ],
-        content : [ `<p>"Piensas que tal vez le ocurrió algo malo a uno de tus hijos o algo así"</p>` ],
-            category: {
-                long_name: "Ciencia y tecnología",
-                short_name: "CyT"
-            },
-            tags : ["Einstein", "bolsa de valores", "recesión" ],
-            autor :"Ruth Alexander",
-            article : "https://www.bbc.com/noticia-54572478",
-            source : "https://www.bbc.com/",
-            publication_date: new Date()
+        id:"5f96cf7a4d16f902438ee1c0",
+        title:"Por tiempo se hundiría proyecto de reforma Constitucional para acabar ...",
+        subtitle:" Por falta de tiempo para lograr su trámite legislativo que obliga a t...",
+        body:["ArrayBody1"],
+        images:["ArrayImages1"],
+        category: "Política",
+        tags:["ArrayTgas1", "Einstein"],
+        author:"Colprensa, Bogotá",
+        publication_date:"2020-10-19",
+        news_url:"https://www.vanguardia.com/politica/por-tiempo-se-hundiria-proyecto-de...",
+        host:"https://www.vanguardia.com"
     },
     {
-        title : "title 2",
-        subtitle : "Subtitulo 2",
-        images: ["http://image-notice-2.com" ],
-        content : [ `<p>Piensas que tal vez le ocurrió algo </p>` ],
-            category: {
-                long_name: "Política",
-                short_name: "Polit"
-            },
-            tags : ["kapital", "Marx", "Engels" ],
-            autor :"Carl Marx",
-            article : "https://www.bbc.com/noticia-54572478",
-            source : "https://www.bbc.com/",
-            publication_date: new Date()
+        id:"5f96cf7a4456f902438ee1c0",
+        title:"Crisis de los misiles en Cuba  ",
+        subtitle:"Crisis de los misiles en Cuba Crisis de los misiles en Cuba Crisis de los misiles en Cuba ",
+        body:["ArrayBody2"],
+        images:["ArrayImages2"],
+        category:"Economia",
+        tags:["ArrayTgas2"],
+        author:"Alguien",
+        publication_date:"2020-10-19",
+        news_url:"https://www.vanguardia.com/politica/por-tiempo-se-hundiria-proyecto-de...",
+        host:"https://www.vanguardia.com"
     },
     {
-        title : "title 3",
-        subtitle : "Subtitulo 3",
-        images: ["http://image-notice-3.com" ],
-        content : [ `<p>Esta es un anoticia de economia</p>` ],
-            category: {
-                long_name: "Economía",
-                short_name: "Econ"
-            },
-            tags : ["Contador", "Economia", "" ],
-            autor :"Adam Smith",
-            article : "https://www.bbc.com/noticia-54572478",
-            source : "https://www.bbc.com/",
-            publication_date: new Date()
-    },
-    {
-        title : "title 1",
-        subtitle : "",
-        images: ["http://image-notice-1.com" ],
-        content : [ `<p>"Piensas que tal vez le ocurrió algo malo a uno de tus hijos o algo así"</p>` ],
-            category: {
-                long_name: "Ciencia y tecnología",
-                short_name: "CyT"
-            },
-            tags : ["Einstein", "recesión" ],
-            autor :"Carl Sagan",
-            article : "https://www.bbc.com/noticia-54572478",
-            source : "https://www.bbc.com/",
-            publication_date: new Date()
+        id:"5f96cf7a4d16f902098ee1c0",
+        title:"Anonymous",
+        subtitle:" AnonymousAnonymousAnonymousAnonymousAnonymous",
+        body:["ArrayBody3"],
+        images:["ArrayImages3"],
+        category:"Política",
+        tags:["ArrayTgas3"],
+        author:"Colprensa, Bogotá",
+        publication_date:"2020-10-19",
+        news_url:"https://www.vanguardia.com/politica/por-tiempo-se-hundiria-proyecto-de...",
+        host:"https://www.vanguardia.com"
     },
 ]
 
@@ -67,14 +44,23 @@ function filteredByTagsMock(tags){
     return newsMock.filter(news => news.tags.includes(tags))
 }
 function filteredByCategoryMock (category) {
-    return newsMock.filter(news => news.category.short_name === category)
+    return newsMock.filter(news => news.category === category)
 }
 
+class MongoLibMock {
+    async getNews() {
+        return Promise.resolve(newsMock)
+    }
+    
+    async getOne() {
+        return Promise.resolve(newsMock[0])
+    }
+}
 
 
 module.exports = {
     newsMock,
     filteredByTagsMock,
     filteredByCategoryMock,
-    NewsServiceMock
+    MongoLibMock
 }
