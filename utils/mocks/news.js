@@ -46,6 +46,27 @@ function filteredByTagsMock (tags) {
 function filteredByCategoryMock (category) {
   return newsMock.filter(news => news.category === category)
 }
+function filterById(_id){
+  return newsMock[0]
+}
+
+class NewsServiceMock{
+  async getNews ({ tags, category, page = 1 }) {
+    let response
+    if (tags ) {
+      response = await filteredByTagsMock('Einstein')
+    } else if (categoty ) {
+      response = await filteredByCategoryMock('Política')
+    } else {
+      response = await newsMock
+    }
+    return response
+  }
+
+  async getOne (_id) {
+    return filterById(_id)
+  }
+}
 
 module.exports = {
   newsMock,

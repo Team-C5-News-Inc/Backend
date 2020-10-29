@@ -38,7 +38,7 @@ function newsRoute (app) {
     cacheResponse(res, TEN_MINUTES_IN_SECONDS)
     /* In this define syntax, of query not exist its a object empty */
     const { tags, category, page = 0 } = req.query
-
+    console.log( tags, category, page );
     try {
       const serviceResponse = await NewsServiceInstance.getNews({ tags, category, page })
 
