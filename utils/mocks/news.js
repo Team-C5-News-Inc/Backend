@@ -37,6 +37,7 @@ const newsMock = [
     publication_date: '2020-10-19',
     news_url: 'https://www.vanguardia.com/politica/por-tiempo-se-hundiria-proyecto-de...',
     host: 'https://www.vanguardia.com'
+
   }
 ]
 

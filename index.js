@@ -30,6 +30,7 @@ app.use(cors())
 
 // app.use('/api/news', )
 newsRoute(app)
+
 app.use('/search', graphqlHTTP({
   schema: schema,
   rootValue: resolvers,
@@ -37,21 +38,13 @@ app.use('/search', graphqlHTTP({
 }))
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc))
-
 app.use(logError) // Error Handlers
 app.use(errorHandler) // Error Handlers
 
 // Where listen the server?
 
-/* Validation with Test server */
-if (process.env.NODE_ENV === 'test') {
-  app.listen(port, () => {
-    console.log(`App is listening to TEST in ${port}`)
-  })
-} else {
-  app.listen(port, () => {
-    console.log(`App listen on ${port}`)
-  })
-}
+app.listen(port, () => {
+  console.log(`App listen on ${port}`)
+})
 
 module.exports = app

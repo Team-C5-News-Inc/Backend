@@ -1,5 +1,5 @@
 const connectMongoDb = require('./mongodb')
-// const { ObjectID } = require('mongodb')
+const errorHandler = require('./errorhandler')
 
 module.exports = {
   getNews: async () => {
@@ -10,7 +10,7 @@ module.exports = {
       mongodb = await connectMongoDb()
       news = await mongodb.collection('news').find().toArray()
     } catch (error) {
-      console.error('error no entra a try')
+      errorHandler(error)
     }
 
     return news
@@ -27,7 +27,7 @@ module.exports = {
         ).toArray()
       items = [...news]
     } catch (error) {
-      console.error('error no entra al try')
+      errorHandler(error)
     }
 
     return items
