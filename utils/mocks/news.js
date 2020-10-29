@@ -46,7 +46,6 @@ function filteredByTagsMock (tags) {
 }
 function filteredByCategoryMock (category) {
   return newsMock.filter(news => news.category === category)
-
 }
 
 module.exports = {
