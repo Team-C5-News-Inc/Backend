@@ -1,96 +1,82 @@
 ---
-title: 'C5 Notices Backend'
+title: 'C5 News Backend'
 disqus: hackmd
 ---
 
-Project Title
+![](https://i.imgur.com/n2EdNC0.png)
+API
 ===
-![downloads](https://img.shields.io/github/downloads/atom/atom/total.svg)
-![build](https://img.shields.io/appveyor/ci/:user/:repo.svg)
-![chat](https://img.shields.io/discord/:serverId.svg)
 
 ## Table of Contents
 
 [TOC]
 
-## Beginners Guide
+## General Description
 
-If you are a total beginner to this, start here!
-
-1. Visit hackmd.io
-2. Click "Sign in"
-3. Choose a way to sign in
-4. Start writing note!
-
-User story
----
-
-```gherkin=
-Feature: Guess the word
-
-  # The first example has two steps
-  Scenario: Maker starts a game
-    When the Maker starts a game
-    Then the Maker waits for a Breaker to join
-
-  # The second example has three steps
-  Scenario: Breaker joins a game
-    Given the Maker has started a game with the word "silky"
-    When the Breaker joins the Maker's game
-    Then the Breaker must guess a word with 5 characters
-```
-> I choose a lazy person to do a hard job. Because a lazy person will find an easy way to do it. [name=Bill Gates]
+News inc is an online newspaper that publishes news on a large scale every day (50-100 publications daily). This news is drawn from the world's leading newspapers and references each source accurately. It has 5 to 10 categories and each news has tags that identify it. It also has its own commenting system, so it has users with different roles (visitors, administrators, etc.).
 
 
-```gherkin=
-Feature: Shopping Cart
-  As a Shopper
-  I want to put items in my shopping cart
-  Because I want to manage items before I check out
+## Folder Structure
 
-  Scenario: User adds item to cart
-    Given I'm a logged-in User
-    When I go to the Item page
-    And I click "Add item to cart"
-    Then the quantity of items in my cart should go up
-    And my subtotal should increment
-    And the warehouse inventory should decrement
-```
+![](https://i.imgur.com/F7ZLAw8.png)
 
-> Read more about Gherkin here: https://docs.cucumber.io/gherkin/reference/
 
-User flows
----
-```sequence
-Alice->Bob: Hello Bob, how are you?
-Note right of Bob: Bob thinks
-Bob-->Alice: I am good thanks!
-Note left of Alice: Alice responds
-Alice->Bob: Where have you been?
-```
-
-> Read more about sequence-diagrams here: http://bramp.github.io/js-sequence-diagrams/
-
-Project Timeline
+Project Backend/Data Science Timeline
 ---
 ```mermaid
 gantt
-    title A Gantt Diagram
+    title API's Develop
 
-    section Section
-    A task           :a1, 2014-01-01, 30d
-    Another task     :after a1  , 20d
-    section Another
-    Task in sec      :2014-01-12  , 12d
-    anther task      : 24d
+    section Planning
+    Documentation and planning (First week)  :a1, 2020-10-09, 07d
+    section Code
+    Code Node API-Rest (List and Querys) :a1, 2020-10-17, 07d
+    Connect with MongoDB (Second week) :a1, 2020-10-17, 04d
+    Code GrapqlAPI :a1, 2020-10-23  , 03d
+    Add data to database MongoDB (Second week) :a1, 2020-10-24, 04d
+    Tests  (Third week)  :a1, 2020-10-26  , 05d
 ```
 
-> Read more about mermaid here: http://mermaid-js.github.io/mermaid/
+> Read more about the project here: https://www.notion.so/Team-master5-7-inc-News-Inc-project-7340af6d026b4eb8a3f0099888a890a6
 
-## Appendix and FAQ
+## Technologies
 
-:::info
-**Find this document incomplete?** Leave a comment!
-:::
 
-###### tags: `Templates` `Documentation`
+* ![](https://i.imgur.com/eA8ZrPK.png)
+* ![](https://i.imgur.com/7zKF4pa.png)
+* ![](https://i.imgur.com/Rruh7c4.png)
+* ![](https://i.imgur.com/ZFTkIJ7.png)
+* ![](https://i.imgur.com/VULziVz.png)
+* ![](https://i.imgur.com/Oa8sfu0.png)
+
+##  Test
+
+* ![](https://i.imgur.com/jCDE72M.png)
+
+##  Deploy and CI
+
+* ![](https://i.imgur.com/u67pzSH.png)
+* ![](https://i.imgur.com/VIn6FVD.png)
+
+
+### Libraries
+
+* cors
+* dotenv
+* express-graphql
+* graphql-tools
+* swagger-ui-express
+* nodemon
+* standard
+
+## Routes
+
+* Api-Rest: http://backend-platzi-news.herokuapp.com/api/news
+* Api-Graphql: https://backend-platzi-news.herokuapp.com/search
+* Swagger-doc: https://app.swaggerhub.com/apis-docs/Jules.Cubs/News_inc/1.0.0
+
+##  Architecture
+
+![](https://i.imgur.com/QTjaqqX.png)
+
+
