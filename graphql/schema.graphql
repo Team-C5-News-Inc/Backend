@@ -2,7 +2,7 @@ type news {
     _id: ID!
     title: String!
     subtitle: String
-    content: [ String ]
+    body: [ String ]
     images: [ String ]
     category:  String!
     tags: [ String ]

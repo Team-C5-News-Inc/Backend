@@ -1,7 +1,6 @@
-const {request} = require("graphql-request");
+const { request } = require('graphql-request')
 
-const uri = `https://backend-platzi-news.herokuapp.com/search`
-
+const uri = 'https://backend-platzi-news.herokuapp.com/search'
 
 const query = `query{
     searchNews(keyword:"manchester"){
@@ -16,11 +15,10 @@ const query = `query{
       news_url
       host
     }
-  }`;
+  }`
 
 request(uri, query)
-    .then(data=>{
-        
-        console.log(data.searchNews);
-    })
-    .catch(err=> console.log(err.response.data.searchNews))
+  .then(data => {
+    console.log(data.searchNews)
+  })
+  .catch(err => console.log(err.response.data.searchNews))

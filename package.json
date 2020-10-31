@@ -10,7 +10,8 @@
     "start": "NODE_ENV=production node index.js",
     "dev": "nodemon index.js",
     "test": "mocha --exit",
-    "test:coverage": "mocha",
+    "test:coverage": "nyc npm run test",
+    "report": "nyc report --reporter=html",
     "lint": "standard",
     "lint-fix": "standard --fix"
   },
@@ -50,5 +51,15 @@
     "sinon": "^9.2.1",
     "standard": "^15.0.0",
     "supertest": "^5.0.0"
+  },
+  "nyc": {
+    "all" : true,
+    "include" : [
+      "routes",
+      "graphql",
+      "lib",
+      "services",
+      "utils"
+    ] 
   }
 }

@@ -10,7 +10,7 @@ const newsMock = [
     host: 'https://www.vanguardia.com',
     news_url: 'https://www.vanguardia.com/politica/por-tiempo-se-hundiria-proyecto-de...',
     publication_date: '2020-10-19',
-    category: 'Deportes',
+    category: 'Deportes'
   },
   {
     _id: '5f96cf7a4456f902438ee1c0',
@@ -23,7 +23,7 @@ const newsMock = [
     host: 'https://www.vanguardia.com',
     news_url: 'https://www.vanguardia.com/politica/por-tiempo-se-hundiria-proyecto-de...',
     publication_date: '2020-10-19',
-    category: 'Economia',
+    category: 'Economia'
   },
   {
     _id: '5f96cf7a4d16f902098ee1c0',
@@ -36,8 +36,8 @@ const newsMock = [
     host: 'https://www.vanguardia.com',
     news_url: 'https://www.vanguardia.com/politica/por-tiempo-se-hundiria-proyecto-de...',
     publication_date: '2020-10-19',
-    category: 'Política',
-    
+    category: 'Política'
+
   }
 ]
 
@@ -73,6 +73,5 @@ module.exports = {
   newsMock,
   filteredByTagsMock,
   filteredByCategoryMock,
-  NewsServiceMock,
+  NewsServiceMock
 }
-

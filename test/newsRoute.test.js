@@ -15,9 +15,19 @@ describe("routes - news", function () {
     it("should response with status 200", function(done){
       request.get('/api/news').expect(200, done) 
     })
-    it("should respond with the list news", function (){
+    
+    it("should respond with the list news", function (done){
       request.get("/api/news").end((err, res)=>{
-        assert.deepEqual(res.body)
+        assert.deepEqual(res.body,{
+            info: {
+            next_page: "http://backend-platzi-news.herokuapp.com/api/news?page=2",
+            prev_page: "http://backend-platzi-news.herokuapp.com/api/news?page=0",
+            category: null,
+            tags: null
+          },
+          data: newsMock 
+        })
+        done()      
       })
     }) 
   })
