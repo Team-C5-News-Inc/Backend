@@ -1,5 +1,6 @@
 const connectMongoDb = require('./mongodb')
-// const { ObjectID } = require('mongodb')
+
+const errorHandler = require('./errorhandler')
 
 module.exports = {
   getNews: async () => {
@@ -10,7 +11,7 @@ module.exports = {
       mongodb = await connectMongoDb()
       news = await mongodb.collection('news').find().toArray()
     } catch (error) {
-      console.error('error no entra a try')
+      errorHandler(error)
     }
 
     return news
@@ -22,12 +23,17 @@ module.exports = {
 
     try {
       mongodb = await connectMongoDb()
+
+      /* Creted Index if not exist */
+      await mongodb.collection('news').createIndex({ title: 'text', subtitle: 'text', body: 'text' })
+      /* Creted Index if not exist */
+
       news = await mongodb.collection('news')
         .find({ $text: { $search: keyword } }
         ).toArray()
       items = [...news]
     } catch (error) {
-      console.error('error no entra al try')
+      errorHandler(error)
     }
 
     return items
