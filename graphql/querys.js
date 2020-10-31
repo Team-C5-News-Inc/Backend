@@ -22,6 +22,7 @@ module.exports = {
 
     try {
       mongodb = await connectMongoDb()
+
       news = await mongodb.collection('news')
         .find({ $text: { $search: keyword } }
         ).toArray()
