@@ -11,7 +11,7 @@ const pagination = (req, nextOrPrev, page) => {
     if (page) {
       nextOrPrevPage = `http://backend-platzi-news.herokuapp.com/api/news?page=${parseInt(page) + 1}`
     } else {
-      nextOrPrevPage = `http://backend-platzi-news.herokuapp.com/api/news?page=2`
+      nextOrPrevPage = 'http://backend-platzi-news.herokuapp.com/api/news?page=2'
     }
   }
   if (nextOrPrev === 'prev') {
