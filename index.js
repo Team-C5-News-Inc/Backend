@@ -21,6 +21,7 @@ const typeDefs = readFileSync(
   join(__dirname, 'graphql', 'schema.graphql'), 'utf-8'
 )
 
+
 const schema = makeExecutableSchema({ typeDefs, resolvers })
 
 /* Middlewares execute */
@@ -43,6 +44,7 @@ app.use(logError) // Error Handlers
 app.use(errorHandler) // Error Handlers
 
 // Where listen the server?
+
 app.listen(port, () => {
   console.log(`App listen on ${port}`)
 })
