@@ -41,7 +41,7 @@ function newsRoute (app) {
     const { tags, category, page = 0 } = req.query
     try {
       const serviceResponse = await NewsServiceInstance.getNews({ tags, category, page })
-      
+
       res.status(200).json({
         info: {
           next_page: pagination(req, 'next', page),
