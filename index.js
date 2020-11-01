@@ -21,6 +21,7 @@ const typeDefs = readFileSync(
   join(__dirname, 'graphql', 'schema.graphql'), 'utf-8'
 )
 
+
 const schema = makeExecutableSchema({ typeDefs, resolvers })
 
 /* Middlewares execute */
