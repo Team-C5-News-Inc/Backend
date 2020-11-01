@@ -31,16 +31,17 @@ function newsRoute (app) {
 
   const NewsServiceInstance = new NewsService()
 
-  app.use('/api/news', router) // route call from in index
+  app.use('/api/news', router)
 
   // Get All
   router.get('/', async (req, res, next) => {
     cacheResponse(res, TEN_MINUTES_IN_SECONDS)
+
     /* In this define syntax, of query not exist its a object empty */
     const { tags, category, page = 0 } = req.query
     try {
       const serviceResponse = await NewsServiceInstance.getNews({ tags, category, page })
-
+      
       res.status(200).json({
         info: {
           next_page: pagination(req, 'next', page),
