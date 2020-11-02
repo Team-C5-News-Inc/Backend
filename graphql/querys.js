@@ -29,7 +29,6 @@ module.exports = {
         /* Created Index if not exist */
         await mongodb.collection('news').createIndex({ title: 'text', subtitle: 'text', body: 'text' })
       }
-      /* Created Index if not exist */
 
       news = await mongodb.collection('news')
         .find({ $text: { $search: keyword } }
