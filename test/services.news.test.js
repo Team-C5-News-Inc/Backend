@@ -2,7 +2,7 @@ const assert = require('assert')
 const proxyquire = require('proxyquire')
 
 const { MongoLibMock, getAllStub, getOneStub } = require('../utils/mocks/mongodbLib')
-const { newsMock, filteredByCategoryMock, filteredByTagsMock,  } = require('../utils/mocks/news')
+const { newsMock, filteredByCategoryMock, filteredByTagsMock } = require('../utils/mocks/news')
 
 describe('Service - movies', function () {
   const NewsServices = proxyquire('../services/news', {
@@ -24,18 +24,13 @@ describe('Service - movies', function () {
       assert.strictEqual(result, expected)
     })
     it('Filter by tags-Service', async function () {
-      await newsService.getNews("news",{ tags: { tags: { $in: 'Einstein' } } })
+      await newsService.getNews('news', { tags: { tags: { $in: 'Einstein' } } })
       assert.strictEqual(getAllStub.called, true)
     })
     it('Filter by categories- Service', async function () {
-      await newsService.getNews("news",{ category: 'Política' })
+      await newsService.getNews('news', { category: 'Política' })
 
-      assert.strictEqual(getAllStub.called , true )
+      assert.strictEqual(getAllStub.called, true)
     })
   })
- 
 })
-  
-
-
-

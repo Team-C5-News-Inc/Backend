@@ -19,7 +19,7 @@ getAllStub.withArgs('news', { category: 'Política' }).resolves(filteredByCatego
 
 const getOneStub = sinon.stub()
 
-getOneStub.withArgs("5f96cf7a4456f902438ee1c0").resolves(newsMock)
+getOneStub.withArgs('5f96cf7a4456f902438ee1c0').resolves(newsMock)
 
 class MongoLibMock {
   getAllAggregate (collection, query) {

@@ -1,14 +1,13 @@
-const { getNews, searchNews } = require("../../graphql/querys")
-const {newsMock, } =require("./news")
+const { getNews, searchNews } = require('../../graphql/querys')
+const { newsMock } = require('./news')
 
-
-module.exports =  {
-  getNews:()=>{
-      return newsMock
+module.exports = {
+  getNews: () => {
+    return newsMock
   },
-  searchNews:(root, { keyword})=>{
-      let response = newsMock
-      
-      return response
+  searchNews: (root, { keyword }) => {
+    const response = newsMock
+
+    return response
   }
 }
