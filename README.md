@@ -18,8 +18,7 @@ News inc is an online newspaper that publishes news on a large scale every day (
 
 ## Folder Structure
 
-![](https://i.imgur.com/F7ZLAw8.png)
-
+![](https://i.imgur.com/EVmCV5e.png)
 
 Project Backend/Data Science Timeline
 ---
