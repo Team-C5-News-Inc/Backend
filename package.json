@@ -53,13 +53,13 @@
     "supertest": "^5.0.0"
   },
   "nyc": {
-    "all" : true,
-    "include" : [
+    "all": true,
+    "include": [
       "routes",
       "graphql",
       "lib",
       "services",
       "utils"
-    ] 
+    ]
   }
 }
