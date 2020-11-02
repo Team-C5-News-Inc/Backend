@@ -92,4 +92,4 @@ describe('routes - news', function () {
 //   const request = testServer(route);
 //   request.get("/api/news").send({"hola": 2}).end((err, res)=>{
 //     console.log(res.status);
-//   }))
+//   })) 
