@@ -34,7 +34,8 @@ gantt
     Connect with MongoDB (Second week) :a1, 2020-10-17, 04d
     Code GrapqlAPI :a1, 2020-10-23  , 03d
     Add data to database MongoDB (Second week) :a1, 2020-10-24, 04d
-    Tests  (Third week)  :a1, 2020-10-26  , 05d
+    section Tests
+    Tests  (Third week)  :a1, 2020-10-26  , 07d
 ```
 
 > Read more about the project here: https://www.notion.so/Team-master5-7-inc-News-Inc-project-7340af6d026b4eb8a3f0099888a890a6
