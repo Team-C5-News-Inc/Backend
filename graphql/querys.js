@@ -24,7 +24,7 @@ module.exports = {
     try {
       mongodb = await connectMongoDb()
 
-      const index = await mongodb.collection('news').indexExists('title_text_subtitle_text_body_text')
+      let index = await mongodb.collection('news').indexExists("title_text_subtitle_text_body_text")
       if (!index) {
         /* Created Index if not exist */
         await mongodb.collection('news').createIndex({ title: 'text', subtitle: 'text', body: 'text' })
